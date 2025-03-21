@@ -239,6 +239,7 @@ engine        = require "./server_engine_handler"
       if pass
         await fs.exists full_path, defer(exists)
         break if exists
+      res.status 404
       res.end "not exists"
       return
     await fs.stat full_path, defer(err, stat) ; throw err if err
